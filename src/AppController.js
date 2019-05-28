@@ -19,6 +19,21 @@ export const startMainApp = () => {
         selectedIcon: IconAssets.Profile,
         title: "Profile"
       }
-    ]
+    ],
+    appStyle: {
+      tabBarSelectedButtonColor: "#009688",
+      forceTitlesDisplay: true,
+      navBarTitleTextCentered: true,
+      navBarBackgroundColor: "white"
+    }
+  });
+};
+
+export const startLogin = () => {
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: ScreenIDs.Login,
+      title: "Login"
+    }
   });
 };
