@@ -12,7 +12,7 @@ const INIT_STATE = {
   user: undefined
 };
 export default (state = INIT_STATE, action) => {
-  switch (((state = INIT_STATE), action)) {
+  switch (action.type) {
     case EMAIL_CHANGED:
       return {
         ...state,

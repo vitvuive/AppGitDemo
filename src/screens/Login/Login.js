@@ -7,11 +7,11 @@ import {
   onLoginRequest
 } from "../../stores/login/action";
 class Login extends Component {
-  _onEmailChanged = email => {
-    this.props.onEmailChange(email);
+  _onEmailChanged = text => {
+    this.props.onEmailChange(text);
   };
-  _onPassChanged = password => {
-    this.props.onPasswordChange(password);
+  _onPassChanged = text => {
+    this.props.onPasswordChange(text);
   };
   _onHandleLogin = () => {
     const { email, password } = this.props;
@@ -85,4 +85,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect()(Login);
+export default connect(
+  mapStateToProps,
+  { onEmailChange, onPasswordChange, onLoginRequest }
+)(Login);

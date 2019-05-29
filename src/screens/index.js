@@ -19,5 +19,9 @@ const registerScreens = (store: Object, Provider: Object) => {
     );
   });
 };
-
+// export function registerScreens() {
+//   Navigation.registerComponent("Home", () => Home);
+//   Navigation.registerComponent("Login", () => Login);
+//   Navigation.registerComponent("Profile", () => Profile);
+// }
 export { ScreenIDs, registerScreens };
