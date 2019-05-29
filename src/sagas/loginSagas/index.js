@@ -1,2 +1,3 @@
 import { watchLogin } from "./watchLogin";
-export default [watchLogin()];
+import { watchLogOut } from "./watchLogOut";
+export default [watchLogin(), watchLogOut()];

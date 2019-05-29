@@ -6,18 +6,22 @@ export const startMainApp = () => {
   Navigation.startTabBasedApp({
     tabs: [
       {
-        label: "Home",
+        label: "Search",
         screen: ScreenIDs.Home,
         icon: IconAssets.SearchFolder,
         selectedIcon: IconAssets.SearchFolder,
-        title: "Home"
+        navigatorStyle: {
+          navBarHidden: true,
+          statusBarColor: "#009688"
+        }
       },
       {
         label: "Profile",
         screen: ScreenIDs.Profile,
         icon: IconAssets.Profile,
         selectedIcon: IconAssets.Profile,
-        title: "Profile"
+        title: "Profile",
+        navBarBackgroundColor: "#009688"
       }
     ],
     appStyle: {

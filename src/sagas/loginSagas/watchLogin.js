@@ -9,14 +9,18 @@ import {
 function* handleLogin(action) {
   try {
     console.log("here login");
-    console.log(action.email);
+    // console.log(action.email);
     const auth = firebaseNana.auth();
     const data = yield call(
       [auth, auth.signInWithEmailAndPassword],
       action.email,
       action.password
     );
-    yield put({ type: REQUEST_LOGIN_SUCCESS, payload: data });
+    yield put({
+      type: REQUEST_LOGIN_SUCCESS,
+      payload: data,
+      pay: action.email
+    });
     AppController.startMainApp();
   } catch (error) {
     yield put({ type: REQUEST_LOGIN_FAILED, payload: error });

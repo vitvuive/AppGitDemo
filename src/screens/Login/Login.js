@@ -27,7 +27,7 @@ class Login extends Component {
             placeholder="Email"
             fontSize={18}
             keyboardType="email-address"
-            autoFocus
+            // autoFocus
             value={this.props.email}
             onChangeText={this._onEmailChanged}
             returnKeyType="next"
@@ -49,8 +49,11 @@ class Login extends Component {
             }}
             onSubmitEditing={this._onHandleLogin}
           />
-          <TouchableOpacity onPress={this._onHandleLogin}>
-            <Text style={{ fontSize: 18, color: "#F79617" }}>{"LOGIN"}</Text>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={this._onHandleLogin}
+          >
+            <Text style={{ fontSize: 18, color: "#FFF" }}>{"LOGIN"}</Text>
           </TouchableOpacity>
           <Text>{this.props.messenger}</Text>
         </View>
@@ -76,6 +79,15 @@ const styles = {
     margin: 10,
     borderBottomWidth: 1,
     borderColor: "#dadada"
+  },
+  buttonStyle: {
+    height: 40,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#009688",
+    paddingLeft: 24,
+    paddingRight: 24
   }
 };
 const mapStateToProps = state => {

@@ -28,9 +28,10 @@ class Home extends Component {
           <TextInput
             underlineColorAndroid="transparent"
             style={styles.textInput}
-            placeholder="Search reposity"
+            placeholder="Search your repositories"
             value={this.props.name}
             onChangeText={this._onNameChanged}
+            onSubmitEditing={this._onHandleSearch}
           />
           <TouchableOpacity onPress={this._onHandleSearch}>
             <Text>{"Search"}</Text>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   },
   containerSearch: {
     backgroundColor: "#009688",
-    height: 50,
+    height: 60,
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 20,

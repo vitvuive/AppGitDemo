@@ -27,6 +27,7 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         user: action.payload,
+        email: action.pay,
         password: "",
         messenger: "Success Login!!"
       };
