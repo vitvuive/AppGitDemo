@@ -3,10 +3,12 @@ import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import Login from "./Login/Login";
 import ScreenIDs from "./ScreenIDs";
+import CardRepos from "./Home/CardRepos/CardRepos";
 const screens = {
   [ScreenIDs.Home]: Home,
   [ScreenIDs.Profile]: Profile,
-  [ScreenIDs.Login]: Login
+  [ScreenIDs.Login]: Login,
+  [ScreenIDs.CardRepos]: CardRepos
 };
 
 const registerScreens = (store: Object, Provider: Object) => {

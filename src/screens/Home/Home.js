@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import CardRepos from "./CardRepos/CardRepos";
 class Home extends Component {
   _onNameChanged = text => {
     this.props.nameChanged(text);
@@ -19,7 +20,7 @@ class Home extends Component {
     this.props.onSearchRequest(this.props.name);
   };
   render() {
-    console.log(this.props.dataApp.login);
+    console.log(this.props.dataApp);
     const { name, avatar_url } = this.props.dataApp;
     return (
       <View style={styles.conainter}>
@@ -41,7 +42,12 @@ class Home extends Component {
           style={{ height: 100, width: 100 }}
         />
         <View>
-          <FlatList />
+          <FlatList
+            data={this.props.dataApp}
+            renderItem={({ item }) => <CardRepos data_res={item} />}
+            extraData={this.state}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </View>
       </View>
     );
@@ -69,12 +75,12 @@ const styles = StyleSheet.create({
   }
 });
 const mapStateToProps = state => {
-  // const dataApp = _.map(state.searchReducer.data, value => {
-  //   return { value };
-  // });
+  const dataApp = _.map(state.searchReducer.data, (value, key) => {
+    return { ...value, key };
+  });
   return {
     name: state.searchReducer.name,
-    dataApp: state.searchReducer.data
+    dataApp
   };
 };
 

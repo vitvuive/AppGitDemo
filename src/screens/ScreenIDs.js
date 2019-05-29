@@ -1,5 +1,6 @@
 export default {
   Login: "Login",
   Profile: "Profile",
-  Home: "Home"
+  Home: "Home",
+  CardRepos: "CardRepos"
 };
