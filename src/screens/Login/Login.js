@@ -47,7 +47,7 @@ class Login extends Component {
             ref={input => {
               this.secondTextInput = input;
             }}
-            onSubmitEditing={this._onNext}
+            onSubmitEditing={this._onHandleLogin}
           />
           <TouchableOpacity onPress={this._onHandleLogin}>
             <Text style={{ fontSize: 18, color: "#F79617" }}>{"LOGIN"}</Text>

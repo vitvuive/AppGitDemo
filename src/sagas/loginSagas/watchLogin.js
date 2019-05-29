@@ -9,6 +9,7 @@ import {
 function* handleLogin(action) {
   try {
     console.log("here login");
+    console.log(action.email);
     const auth = firebaseNana.auth();
     const data = yield call(
       [auth, auth.signInWithEmailAndPassword],

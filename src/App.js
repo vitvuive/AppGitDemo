@@ -8,8 +8,8 @@ import { startSaga, Provider, store } from "./redux-config";
 registerScreens(store, Provider);
 startSaga();
 export function startApp() {
-  AppControllder.startLogin();
-  //   AppControllder.startMainApp();
+  // AppControllder.startLogin();
+  AppControllder.startMainApp();
 
   //   Navigation.startSingleScreenApp({
   //     screen: {
