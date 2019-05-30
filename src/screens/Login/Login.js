@@ -1,11 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+/**
+ * @author: Nguyen Van Viet
+ * @email: vietqb9779@gmail.com
+ */
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import {
   onEmailChange,
   onPasswordChange,
-  onLoginRequest
-} from "src/stores/login/action";
+  onLoginRequest,
+} from 'src/stores/login/action';
 class Login extends Component {
   _onEmailChanged = text => {
     this.props.onEmailChange(text);
@@ -54,7 +58,7 @@ class Login extends Component {
             style={styles.buttonStyle}
             onPress={this._onHandleLogin}
           >
-            <Text style={{ fontSize: 18, color: "#FFF" }}>{"LOGIN"}</Text>
+            <Text style={{ fontSize: 18, color: '#FFF' }}>{'LOGIN'}</Text>
           </TouchableOpacity>
           <Text>{this.props.messenger}</Text>
         </View>
@@ -65,41 +69,41 @@ class Login extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#EEEEEE",
-    padding: 24
+    backgroundColor: '#EEEEEE',
+    padding: 24,
   },
   containerText: {
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
     height: 40,
     width: 250,
-    borderColor: "white",
+    borderColor: 'white',
     paddingHorizontal: 10,
     margin: 10,
     borderBottomWidth: 1,
-    borderColor: "#dadada"
+    borderColor: '#dadada',
   },
   buttonStyle: {
     height: 40,
     borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#009688",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#009688',
     paddingLeft: 24,
-    paddingRight: 24
-  }
+    paddingRight: 24,
+  },
 };
 const mapStateToProps = state => {
   return {
     email: state.loginReducer.email,
     password: state.loginReducer.password,
-    messenger: state.loginReducer.messenger
+    messenger: state.loginReducer.messenger,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { onEmailChange, onPasswordChange, onLoginRequest }
+  { onEmailChange, onPasswordChange, onLoginRequest },
 )(Login);

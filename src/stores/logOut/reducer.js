@@ -1,11 +1,15 @@
+/**
+ * @author: Nguyen Van Viet
+ * @email: vietqb9779@gmail.com
+ */
 import {
   REQUEST_LOGOUT,
   REQUEST_LOGOUT_FAILED,
-  REQUEST_LOGOUT_SUCCESS
-} from "./type";
+  REQUEST_LOGOUT_SUCCESS,
+} from './type';
 const INIT_STATE = {
   loading: false,
-  messenger: ""
+  messenger: '',
 };
 
 export default (state = INIT_STATE, action) => {
@@ -13,19 +17,19 @@ export default (state = INIT_STATE, action) => {
     case REQUEST_LOGOUT:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case REQUEST_LOGOUT_SUCCESS:
       return {
         ...state,
         loading: false,
-        messenger: "Success"
+        messenger: 'Success',
       };
     case REQUEST_LOGOUT_FAILED:
       return {
         ...state,
         loading: false,
-        messenger: "Log Out Failed"
+        messenger: 'Log Out Failed',
       };
 
     default:

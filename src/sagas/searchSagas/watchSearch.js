@@ -1,13 +1,17 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+/**
+ * @author: Nguyen Van Viet
+ * @email: vietqb9779@gmail.com
+ */
+import { call, put, takeLatest } from 'redux-saga/effects';
 import {
   SEARCH_REQUEST,
   SEARCH_REQUEST_FAILED,
-  SEARCH_REQUEST_SUCCESS
-} from "src/stores/searchRepos/type";
-import { getReposName } from "src/services/api";
+  SEARCH_REQUEST_SUCCESS,
+} from 'src/stores/searchRepos/type';
+import { getReposName } from 'src/services/api';
 function* handleSearch(action) {
   try {
-    console.log("here search");
+    console.log('here search');
     console.log(action.name);
     const data = yield getReposName(action.name);
     console.log(data);

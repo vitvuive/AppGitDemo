@@ -1,11 +1,15 @@
-import { put, takeLatest, call } from "redux-saga/effects";
+/**
+ * @author: Nguyen Van Viet
+ * @email: vietqb9779@gmail.com
+ */
+import { put, takeLatest, call } from 'redux-saga/effects';
 import {
   REQUEST_LOGOUT,
   REQUEST_LOGOUT_FAILED,
-  REQUEST_LOGOUT_SUCCESS
-} from "src/stores/logOut/type";
-import { firebaseNana } from "src/firebase-service/firebase";
-import * as AppController from "src/AppController";
+  REQUEST_LOGOUT_SUCCESS,
+} from 'src/stores/logOut/type';
+import { firebaseNana } from 'src/firebase-service/firebase';
+import * as AppController from 'src/AppController';
 function* handleLogout() {
   try {
     const auth = firebaseNana.auth();

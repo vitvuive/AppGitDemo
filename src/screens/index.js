@@ -1,14 +1,18 @@
-import { Navigation } from "react-native-navigation";
-import Home from "./Home/Home";
-import Profile from "./Profile/Profile";
-import Login from "./Login/Login";
-import ScreenIDs from "./ScreenIDs";
-import CardRepos from "./Home/CardRepos/CardRepos";
+/**
+ * @author: Nguyen Van Viet
+ * @email: vietqb9779@gmail.com
+ */
+import { Navigation } from 'react-native-navigation';
+import Home from './Home/Home';
+import Profile from './Profile/Profile';
+import Login from './Login/Login';
+import ScreenIDs from './ScreenIDs';
+import CardRepos from './Home/CardRepos/CardRepos';
 const screens = {
   [ScreenIDs.Home]: Home,
   [ScreenIDs.Profile]: Profile,
   [ScreenIDs.Login]: Login,
-  [ScreenIDs.CardRepos]: CardRepos
+  [ScreenIDs.CardRepos]: CardRepos,
 };
 
 const registerScreens = (store: Object, Provider: Object) => {
@@ -17,7 +21,7 @@ const registerScreens = (store: Object, Provider: Object) => {
       screenID,
       () => screens[screenID],
       store,
-      Provider
+      Provider,
     );
   });
 };
