@@ -3,9 +3,9 @@ import {
   REQUEST_LOGOUT,
   REQUEST_LOGOUT_FAILED,
   REQUEST_LOGOUT_SUCCESS
-} from "../../stores/logOut/type";
-import { firebaseNana } from "../../firebase-service/firebase";
-import * as AppController from "../../AppController";
+} from "src/stores/logOut/type";
+import { firebaseNana } from "src/firebase-service/firebase";
+import * as AppController from "src/AppController";
 function* handleLogout() {
   try {
     const auth = firebaseNana.auth();

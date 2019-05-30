@@ -21,7 +21,11 @@ export const startMainApp = () => {
         icon: IconAssets.Profile,
         selectedIcon: IconAssets.Profile,
         title: "Profile",
-        navBarBackgroundColor: "#009688"
+        navigatorStyle: {
+          statusBarColor: "#009688",
+          navBarBackgroundColor: "#009688",
+          navBarTextColor: "#fff"
+        }
       }
     ],
     appStyle: {
@@ -37,7 +41,13 @@ export const startLogin = () => {
   Navigation.startSingleScreenApp({
     screen: {
       screen: ScreenIDs.Login,
-      title: "Login"
+      title: "Login",
+      navigatorStyle: {
+        statusBarColor: "#009688",
+        navBarBackgroundColor: "#009688",
+        navBarTextColor: "#fff",
+        navBarTitleTextCentered: true
+      }
     }
   });
 };

@@ -3,8 +3,8 @@ import {
   SEARCH_REQUEST,
   SEARCH_REQUEST_FAILED,
   SEARCH_REQUEST_SUCCESS
-} from "../../stores/searchRepos/type";
-import { getReposName } from "../../services/api";
+} from "src/stores/searchRepos/type";
+import { getReposName } from "src/services/api";
 function* handleSearch(action) {
   try {
     console.log("here search");

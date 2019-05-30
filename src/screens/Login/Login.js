@@ -5,7 +5,7 @@ import {
   onEmailChange,
   onPasswordChange,
   onLoginRequest
-} from "../../stores/login/action";
+} from "src/stores/login/action";
 class Login extends Component {
   _onEmailChanged = text => {
     this.props.onEmailChange(text);
@@ -17,6 +17,7 @@ class Login extends Component {
     const { email, password } = this.props;
     this.props.onLoginRequest(email, password);
   };
+
   render() {
     return (
       <View style={styles.container}>
@@ -93,7 +94,8 @@ const styles = {
 const mapStateToProps = state => {
   return {
     email: state.loginReducer.email,
-    password: state.loginReducer.password
+    password: state.loginReducer.password,
+    messenger: state.loginReducer.messenger
   };
 };
 

@@ -7,25 +7,30 @@ import {
 const INIT_STATE = {
   name: "",
   data: [],
-  messenger: ""
+  messenger: "",
+  loading: false
 };
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
     case SEARCH_REQUEST:
       return {
         ...state,
-        messenger: "Searching..."
+        messenger: "Searching...",
+        loading: true
       };
     case SEARCH_REQUEST_SUCCESS:
       return {
         ...state,
         data: action.payload,
-        messenger: "Success"
+        messenger: "Success",
+        loading: false,
+        name: ""
       };
     case SEARCH_REQUEST_FAILED:
       return {
         ...state,
-        messenger: "Search failed"
+        messenger: "Search failed",
+        loading: false
       };
     case NAME_CHANGED:
       return {

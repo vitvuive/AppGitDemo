@@ -24,7 +24,7 @@ class Profile extends Component {
           style={style.buttonStyle}
           onPress={this._handleLogOut}
         >
-          <Text>{"Log Out"}</Text>
+          <Text style={{ fontSize: 18, color: "#FFF" }}>{"LOG OUT"}</Text>
         </TouchableOpacity>
       </View>
     );

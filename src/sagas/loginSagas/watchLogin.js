@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { firebaseNana } from "../../firebase-service/firebase";
-import * as AppController from "../../AppController";
+import { firebaseNana } from "src/firebase-service/firebase";
+import * as AppController from "src/AppController";
 import {
   REQUEST_LOGIN,
   REQUEST_LOGIN_SUCCESS,
@@ -18,8 +18,7 @@ function* handleLogin(action) {
     );
     yield put({
       type: REQUEST_LOGIN_SUCCESS,
-      payload: data,
-      pay: action.email
+      payload: data
     });
     AppController.startMainApp();
   } catch (error) {
