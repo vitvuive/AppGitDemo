@@ -2,9 +2,6 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import _ from 'lodash';
-import { connect } from 'react-redux';
-import { nameChanged, onSearchRequest } from 'src/stores/searchRepos/action';
 import React, { Component } from 'react';
 import {
   View,
@@ -16,9 +13,13 @@ import {
   Image,
   Alert,
 } from 'react-native';
+import { connect } from 'react-redux';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
+import { nameChanged, onSearchRequest } from 'src/stores/searchRepos/action';
+import { IconAssets } from '../../assets';
+import ModalLoading from 'src/components/ModalLoading';
 import CardRepos from './CardRepos/CardRepos';
-import { IconAssets } from 'src/assets';
-import ModalLoading from '../../components/ModalLoading';
 class Home extends Component {
   _onNameChanged = text => {
     this.props.nameChanged(text);

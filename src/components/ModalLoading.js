@@ -4,6 +4,7 @@
  */
 import React, { Component } from 'react';
 import { View, ActivityIndicator, Modal, Text } from 'react-native';
+
 const ModalLoading = ({ visible }) => {
   return (
     <Modal

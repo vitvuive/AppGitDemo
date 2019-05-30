@@ -2,14 +2,29 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import { combineReducers } from 'redux';
+// This file to combine reducer
+import { combineReducers, } from 'redux';
+
 import loginReducer from './login/reducer';
-import searchReducer from './searchRepos/reducer';
+import * as loginSelectors from './login/selectors';
+
 import logOutReducer from './logOut/reducer';
+import searchReducer from './searchRepos/reducer';
 
 const rootReducer = combineReducers({
-  loginReducer,
+  login: loginReducer,
   searchReducer,
-  logOutReducer,
+  logOutReducer, // more
 });
-export { rootReducer };
+
+const actions = {
+  // TODO:
+};
+const types = {
+  // TODO:
+};
+const selectors = {
+  login: loginSelectors,
+};
+
+export { rootReducer, actions, types, selectors };

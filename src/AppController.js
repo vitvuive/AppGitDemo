@@ -2,9 +2,10 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import { Navigation } from 'react-native-navigation';
+import { Navigation, } from 'react-native-navigation';
+
 import ScreenIDs from './screens/ScreenIDs';
-import { IconAssets } from './assets';
+import { IconAssets, } from './assets';
 
 export const startMainApp = () => {
   Navigation.startTabBasedApp({
@@ -44,7 +45,7 @@ export const startMainApp = () => {
 export const startLogin = () => {
   Navigation.startSingleScreenApp({
     screen: {
-      screen: ScreenIDs.Login,
+      screen: ScreenIDs.LoginScreen,
       title: 'Login',
       navigatorStyle: {
         statusBarColor: '#009688',
@@ -55,3 +56,4 @@ export const startLogin = () => {
     },
   });
 };
+// add here
