@@ -14,6 +14,6 @@ export function startApp() {
   // Start redux saga watchers
   startSaga();
 
-  AppControllder.startLogin();
-  // AppControllder.startMainApp();
+  // AppControllder.startLogin();
+  AppControllder.startMainApp();
 }

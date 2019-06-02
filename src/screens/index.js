@@ -4,14 +4,14 @@
  */
 import { Navigation, } from 'react-native-navigation';
 import Home from './Home/Home';
-import Profile from './Profile/Profile';
+import ProfileScreen from './ProfileScreen';
 import LoginScreen from './LoginScreen';
 import ScreenIDs from './ScreenIDs';
 import CardRepos from './Home/CardRepos/CardRepos';
 
 const screens = {
   [ScreenIDs.Home]: Home,
-  [ScreenIDs.Profile]: Profile,
+  [ScreenIDs.Profile]: ProfileScreen,
   [ScreenIDs.LoginScreen]: LoginScreen,
   [ScreenIDs.CardRepos]: CardRepos,
 };

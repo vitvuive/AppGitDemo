@@ -2,31 +2,27 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import {
-  EMAIL_CHANGED,
-  PASSWORD_CHANGED,
-  REQUEST_LOGIN_SUCCESS,
-  REQUEST_LOGIN_FAILED,
-} from './type';
+import { Types, } from './type';
 const INIT_STATE = {
   email: '',
   password: '',
   messenger: '',
   user: undefined,
 };
+
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
-    case EMAIL_CHANGED:
+    case Types.EMAIL_CHANGED:
       return {
         ...state,
         email: action.payload,
       };
-    case PASSWORD_CHANGED:
+    case Types.PASSWORD_CHANGED:
       return {
         ...state,
         password: action.payload,
       };
-    case REQUEST_LOGIN_SUCCESS:
+    case Types.REQUEST_LOGIN_SUCCESS:
       return {
         ...state,
         user: action.payload,
@@ -34,13 +30,29 @@ export default (state = INIT_STATE, action) => {
         password: '',
         messenger: 'suceess',
       };
-    case REQUEST_LOGIN_FAILED:
+    case Types.REQUEST_LOGIN_FAILED:
       return {
         ...state,
         user: undefined,
         email: '',
         password: '',
         messenger: 'Login failed, try again!',
+      };
+    case Types.REQUEST_LOGOUT:
+      return {
+        ...state,
+      };
+    case Types.REQUEST_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        email: '',
+        password: '',
+        messenger: 'Success Log out',
+      };
+    case Types.REQUEST_LOGOUT_FAILED:
+      return {
+        ...state,
+        messenger: 'Log Out Failed! try again!',
       };
     default:
       return state;

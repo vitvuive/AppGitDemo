@@ -5,26 +5,28 @@
 // This file to combine reducer
 import { combineReducers, } from 'redux';
 
-import loginReducer from './login/reducer';
-import * as loginSelectors from './login/selectors';
-
-import logOutReducer from './logOut/reducer';
 import searchReducer from './searchRepos/reducer';
+import {
+  authenticationActions,
+  authenticationReducers,
+  authenticationTypes,
+  authenticationSelectors,
+} from './authentication';
 
 const rootReducer = combineReducers({
-  login: loginReducer,
-  searchReducer,
-  logOutReducer, // more
+  authentication: authenticationReducers,
+  searchReducer, // more
 });
 
-const actions = {
-  // TODO:
-};
 const types = {
-  // TODO:
+  authentication: authenticationTypes,
+};
+
+const actions = {
+  authentication: authenticationActions,
 };
 const selectors = {
-  login: loginSelectors,
+  authentication: authenticationSelectors,
 };
 
 export { rootReducer, actions, types, selectors };

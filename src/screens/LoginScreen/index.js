@@ -4,25 +4,33 @@
  */
 import { connect, } from 'react-redux';
 
-import {
-  onEmailChange,
-  onPasswordChange,
-  onLoginRequest,
-} from 'src/stores/login/action';
-
-import { selectors, } from 'src/stores';
+import { selectors, actions, } from 'src/stores';
 
 import LoginScreen from './LoginScreen';
 
 const mapStateToProps = (state) => {
   return {
-    email: selectors.login.getLoginEmail(state),
-    password: selectors.login.getLoginPassword(state),
-    messenger: selectors.login.getLoginMsg(state),
+    email: selectors.authentication.getLoginEmail(state),
+    password: selectors.authentication.getLoginPassword(state),
+    messenger: selectors.authentication.getLoginMsg(state),
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onEmailChange: (email) => {
+      dispatch(actions.authentication.onEmailChange(email));
+    },
+    onPasswordChange: (password) => {
+      dispatch(actions.authentication.onPasswordChange(password));
+    },
+    onLoginRequest: () => {
+      dispatch(actions.authentication.onLoginRequest());
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
-  { onEmailChange, onPasswordChange, onLoginRequest, },
+  mapDispatchToProps,
 )(LoginScreen);
