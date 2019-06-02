@@ -10,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import ModalLoading from 'src/components/ModalLoading';
 import PropTypes from 'prop-types';
 
 export default class LoginScreen extends Component {
@@ -21,13 +22,15 @@ export default class LoginScreen extends Component {
     email: PropTypes.string.isRequired, // Will change
     password: PropTypes.string.isRequired, // Will change
     messenger: PropTypes.string.isRequired, // Will change
+    loading: PropTypes.bool.isRequired, //will change
   };
 
-  shouldComponentUpdate({ email, password, messenger, }) {
+  shouldComponentUpdate({ email, password, messenger, loading, }) {
     return (
       this.props.email !== email ||
       this.props.password !== password ||
-      this.props.messenger !== messenger
+      this.props.messenger !== messenger ||
+      this.props.loading !== loading
     );
   }
 
@@ -39,6 +42,7 @@ export default class LoginScreen extends Component {
     const {
       email,
       password,
+      loading,
       onEmailChange,
       onPasswordChange,
       onLoginRequest,
@@ -81,6 +85,7 @@ export default class LoginScreen extends Component {
             <Text>{this.props.messenger}</Text>
           </View>
         </View>
+        <ModalLoading visible={loading} />
       </ScrollView>
     );
   }

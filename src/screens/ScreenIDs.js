@@ -4,7 +4,7 @@
  */
 export default {
   LoginScreen: 'LoginScreen',
-  Profile: 'Profile',
-  Home: 'Home',
+  ProfileScreen: 'ProfileScreen',
+  HomeScreen: 'HomeScreen',
   CardRepos: 'CardRepos',
 };

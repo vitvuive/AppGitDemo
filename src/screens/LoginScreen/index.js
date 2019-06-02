@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
     email: selectors.authentication.getLoginEmail(state),
     password: selectors.authentication.getLoginPassword(state),
     messenger: selectors.authentication.getLoginMsg(state),
+    loading: selectors.authentication.getLoading(state),
   };
 };
 

@@ -2,17 +2,25 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import { SEARCH_REQUEST, NAME_CHANGED } from './type';
+import { Types, } from './type';
 
-export const onSearchRequest = name => {
+const onSearchRequest = (name) => {
   return {
-    type: SEARCH_REQUEST,
+    type: Types.SEARCH_REQUEST,
     name,
   };
 };
-export const nameChanged = text => {
+
+const nameChanged = (text) => {
   return {
-    type: NAME_CHANGED,
+    type: Types.NAME_CHANGED,
     payload: text,
   };
 };
+
+const Actions = {
+  onSearchRequest,
+  nameChanged,
+};
+
+export { Actions };

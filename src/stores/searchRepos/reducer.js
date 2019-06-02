@@ -2,12 +2,7 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import {
-  SEARCH_REQUEST,
-  SEARCH_REQUEST_FAILED,
-  SEARCH_REQUEST_SUCCESS,
-  NAME_CHANGED,
-} from './type';
+import { Types, } from './type';
 const INIT_STATE = {
   name: '',
   data: [],
@@ -16,13 +11,14 @@ const INIT_STATE = {
 };
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
-    case SEARCH_REQUEST:
+    case Types.SEARCH_REQUEST:
       return {
         ...state,
         messenger: 'Searching...',
         loading: true,
       };
-    case SEARCH_REQUEST_SUCCESS:
+
+    case Types.SEARCH_REQUEST_SUCCESS:
       return {
         ...state,
         data: action.payload,
@@ -30,13 +26,15 @@ export default (state = INIT_STATE, action) => {
         loading: false,
         name: '',
       };
-    case SEARCH_REQUEST_FAILED:
+
+    case Types.SEARCH_REQUEST_FAILED:
       return {
         ...state,
         messenger: 'Search failed',
         loading: false,
       };
-    case NAME_CHANGED:
+
+    case Types.NAME_CHANGED:
       return {
         ...state,
         name: action.payload,

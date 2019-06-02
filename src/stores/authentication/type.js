@@ -2,10 +2,11 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
+//login
 const REQUEST_LOGIN = 'REQUEST_LOGIN';
 const REQUEST_LOGIN_SUCCESS = 'REQUEST_LOGIN_SUCCESS';
 const REQUEST_LOGIN_FAILED = 'REQUEST_LOGIN_FAILED';
-//
+// Input
 const EMAIL_CHANGED = 'EMAIL_CHANGED';
 const PASSWORD_CHANGED = 'PASSWORD_CHANGED';
 //log out

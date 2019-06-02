@@ -12,7 +12,7 @@ export const startMainApp = () => {
     tabs: [
       {
         label: 'Search',
-        screen: ScreenIDs.Home,
+        screen: ScreenIDs.HomeScreen,
         icon: IconAssets.SearchFolder,
         selectedIcon: IconAssets.SearchFolder,
         navigatorStyle: {
@@ -22,7 +22,7 @@ export const startMainApp = () => {
       },
       {
         label: 'Profile',
-        screen: ScreenIDs.Profile,
+        screen: ScreenIDs.ProfileScreen,
         icon: IconAssets.Profile,
         selectedIcon: IconAssets.Profile,
         title: 'Profile',

@@ -2,26 +2,29 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import { call, put, takeLatest } from 'redux-saga/effects';
-import {
-  SEARCH_REQUEST,
-  SEARCH_REQUEST_FAILED,
-  SEARCH_REQUEST_SUCCESS,
-} from 'src/stores/searchRepos/type';
-import { getReposName } from 'src/services/api';
-function* handleSearch(action) {
+import { put, takeLatest, select, } from 'redux-saga/effects';
+import { getReposName, } from 'src/services/api';
+
+import { types, selectors, } from 'src/stores';
+function* handleSearch() {
   try {
     console.log('here search');
-    console.log(action.name);
-    const data = yield getReposName(action.name);
+    const name = yield select(selectors.searchRepos.getNameSearch);
+    const data = yield getReposName(name);
     console.log(data);
-    yield put({ type: SEARCH_REQUEST_SUCCESS, payload: data });
+    yield put({
+      type: types.searchRepos.SEARCH_REQUEST_SUCCESS,
+      payload: data,
+    });
   } catch (error) {
-    yield put({ type: SEARCH_REQUEST_FAILED, payload: error });
+    yield put({
+      type: types.searchRepos.SEARCH_REQUEST_FAILED,
+      payload: error,
+    });
     console.log(error);
   }
 }
 
 export function* watchSearch() {
-  yield takeLatest(SEARCH_REQUEST, handleSearch);
+  yield takeLatest(types.searchRepos.SEARCH_REQUEST, handleSearch);
 }

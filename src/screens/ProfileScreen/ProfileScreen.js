@@ -1,13 +1,16 @@
 import React, { Component, } from 'react';
-import { firebaseNana, } from 'src/firebase-service/firebase';
 import { View, Text, TouchableOpacity, StyleSheet, } from 'react-native';
+
 import PropTypes from 'prop-types';
+import { firebaseNana, } from 'src/firebase-service/firebase';
 
 export default class ProfileScreen extends Component {
   static propTypes = {
     onRequestLogOut: PropTypes.func.isRequired, // not change
   };
+
   state = { currentUser: null, };
+
   componentDidMount() {
     const { currentUser, } = firebaseNana.auth();
 
@@ -28,20 +31,25 @@ export default class ProfileScreen extends Component {
     );
   }
 }
+
 const style = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+
+    flex: 1,
     padding: 24,
   },
   buttonStyle: {
-    height: 40,
-    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#009688',
+
+    height: 40,
+
+    borderRadius: 5,
     paddingLeft: 24,
     paddingRight: 24,
+
+    backgroundColor: '#009688',
   },
 });

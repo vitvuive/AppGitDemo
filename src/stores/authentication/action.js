@@ -52,6 +52,7 @@ const onLogOutFailed = (text) => {
     payload: text,
   };
 };
+
 const Actions = {
   onEmailChange,
   onPasswordChange,
