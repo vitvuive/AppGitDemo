@@ -2,6 +2,8 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
+import { firebaseNana, } from 'src/firebase-service/firebase';
+import * as AppController from 'src/AppController';
 import { Types, } from './type';
 
 const onEmailChange = (text) => {
@@ -53,6 +55,22 @@ const onLogOutFailed = (text) => {
   };
 };
 
+const onUserRequest = () => {
+  return (dispatch) => {
+    firebaseNana.auth().onAuthStateChanged((user) => {
+      if (user) {
+        dispatch({
+          type: Types.REQUEST_LOGIN_SUCCESS,
+          payload: user,
+        });
+        AppController.startMainApp();
+      } else {
+        AppController.startLogin();
+      }
+    });
+  };
+};
+
 const Actions = {
   onEmailChange,
   onPasswordChange,
@@ -62,6 +80,7 @@ const Actions = {
   onRequestLogOut,
   onLogOutFailed,
   onLogOutSucess,
+  onUserRequest,
 };
 
 export { Actions };

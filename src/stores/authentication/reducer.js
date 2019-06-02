@@ -8,8 +8,8 @@ const INIT_STATE = {
   email: '',
   password: '',
   messenger: '',
-  user: undefined,
   loading: false,
+  user: {},
 };
 
 export default (state = INIT_STATE, action) => {
@@ -36,8 +36,6 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         user: action.payload,
-        email: '',
-        password: '',
         messenger: 'suceess',
         loading: false,
       };
@@ -48,7 +46,7 @@ export default (state = INIT_STATE, action) => {
         user: undefined,
         email: '',
         password: '',
-        messenger: 'Login failed, try again!',
+        messenger: 'Username or password is incorrect, try again!',
         loading: false,
       };
 
@@ -70,7 +68,7 @@ export default (state = INIT_STATE, action) => {
     case Types.REQUEST_LOGOUT_FAILED:
       return {
         ...state,
-        messenger: 'Log Out Failed! try again!',
+        messenger: 'Log Out F!',
         loading: false,
       };
 

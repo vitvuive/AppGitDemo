@@ -2,10 +2,10 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import React, { Component } from 'react';
-import { View, ActivityIndicator, Modal, Text } from 'react-native';
+import React, { Component, } from 'react';
+import { View, ActivityIndicator, Modal, } from 'react-native';
 
-const ModalLoading = ({ visible }) => {
+const ModalLoading = ({ visible, }) => {
   return (
     <Modal
       visible={visible}

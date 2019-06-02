@@ -7,6 +7,8 @@ import { firebaseNana, } from 'src/firebase-service/firebase';
 export default class ProfileScreen extends Component {
   static propTypes = {
     onRequestLogOut: PropTypes.func.isRequired, // not change
+
+    email: PropTypes.string, // will change
   };
 
   state = { currentUser: null, };
@@ -19,11 +21,11 @@ export default class ProfileScreen extends Component {
 
   render() {
     const { currentUser, } = this.state;
-    const { onRequestLogOut, } = this.props;
+    const { onRequestLogOut, email, } = this.props;
     return (
       <View style={style.container}>
-        <Text>Hi {currentUser && currentUser.email}</Text>
-        <Text>{this.props.email}</Text>
+        <Text>Welcome {currentUser && currentUser.email}</Text>
+        <Text>{email}</Text>
         <TouchableOpacity style={style.buttonStyle} onPress={onRequestLogOut}>
           <Text style={{ fontSize: 18, color: '#FFF', }}>{'LOG OUT'}</Text>
         </TouchableOpacity>

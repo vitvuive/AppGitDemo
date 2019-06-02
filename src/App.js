@@ -15,5 +15,6 @@ export function startApp() {
   startSaga();
 
   // AppControllder.startLogin();
-  AppControllder.startMainApp();
+  // AppControllder.startMainApp();
+  AppControllder.startLoading();
 }

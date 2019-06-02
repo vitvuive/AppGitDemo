@@ -1,7 +1,13 @@
 import { connect, } from 'react-redux';
 import ProfileScreen from './ProfileScreen';
 
-import { actions, } from 'src/stores';
+import { actions, selectors, } from 'src/stores';
+
+const mapStateToProps = (state) => {
+  return {
+    email: selectors.authentication.getLoginEmail(state),
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -12,6 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ProfileScreen);

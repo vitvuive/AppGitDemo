@@ -56,4 +56,16 @@ export const startLogin = () => {
     },
   });
 };
+
+export const startLoading = () => {
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: ScreenIDs.Starting,
+      navigatorStyle: {
+        navBarHidden: true,
+        statusBarColor: '#009688',
+      },
+    },
+  });
+};
 // add here
