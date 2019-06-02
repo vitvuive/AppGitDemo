@@ -32,7 +32,7 @@ export default (state = INIT_STATE, action) => {
         user: action.payload,
         email: '',
         password: '',
-        messenger: '',
+        messenger: 'suceess',
       };
     case REQUEST_LOGIN_FAILED:
       return {

@@ -17,7 +17,7 @@ export function* watchLogin() {
   yield takeLatest(REQUEST_LOGIN, handleLogin);
 }
 
-function* handleLogin(action) {
+function* handleLogin() {
   try {
     const email = yield select(selectors.login.getLoginEmail);
     const password = yield select(selectors.login.getLoginPassword);
@@ -32,8 +32,10 @@ function* handleLogin(action) {
       type: REQUEST_LOGIN_SUCCESS,
       payload: data,
     });
+    console.log('login sucess');
     AppController.startMainApp();
   } catch (error) {
     yield put({ type: REQUEST_LOGIN_FAILED, payload: error, });
+    console.log(error);
   }
 }

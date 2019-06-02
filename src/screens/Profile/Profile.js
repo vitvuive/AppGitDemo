@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
-import { onRequestLogOut } from '../../stores/logOut/action';
-import { firebaseNana } from '../../firebase-service/firebase';
+import React, { Component, } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, } from 'react-native';
+import { connect, } from 'react-redux';
+import { onRequestLogOut, } from '../../stores/logOut/action';
+import { firebaseNana, } from '../../firebase-service/firebase';
 
 class Profile extends Component {
-  state = { currentUser: null };
+  state = { currentUser: null, };
   componentDidMount() {
-    const { currentUser } = firebaseNana.auth();
+    const { currentUser, } = firebaseNana.auth();
 
-    this.setState({ currentUser });
+    this.setState({ currentUser, });
   }
   _handleLogOut = () => {
     this.props.onRequestLogOut();
   };
   render() {
-    const { currentUser } = this.state;
+    const { currentUser, } = this.state;
     console.log(this.props.email);
     return (
       <View style={style.container}>
@@ -25,7 +25,7 @@ class Profile extends Component {
           style={style.buttonStyle}
           onPress={this._handleLogOut}
         >
-          <Text style={{ fontSize: 18, color: '#FFF' }}>{'LOG OUT'}</Text>
+          <Text style={{ fontSize: 18, color: '#FFF', }}>{'LOG OUT'}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -48,12 +48,12 @@ const style = StyleSheet.create({
     paddingRight: 24,
   },
 });
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     email: state.loginReducer.email,
   };
 };
 export default connect(
   null,
-  { onRequestLogOut },
+  { onRequestLogOut, },
 )(Profile);
