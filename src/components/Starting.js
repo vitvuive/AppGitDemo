@@ -6,6 +6,7 @@ class Starting extends Component {
   componentDidMount() {
     this.props.onUserRequest();
   }
+
   render() {
     return (
       <View style={styles.containerStyle}>
@@ -14,6 +15,7 @@ class Starting extends Component {
     );
   }
 }
+
 const styles = {
   containerStyle: {
     flex: 1,
@@ -30,6 +32,7 @@ const mapDispatch = (dispatch) => {
     },
   };
 };
+
 export default connect(
   null,
   mapDispatch,

@@ -12,11 +12,14 @@ function* handleSearch() {
     const name = yield select(selectors.searchRepos.getNameSearch);
     const data = yield getReposName(name);
     // console.log(data);
+
+    // TODO: action creator
     yield put({
       type: types.searchRepos.SEARCH_REQUEST_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    // TODO: action creator
     yield put({
       type: types.searchRepos.SEARCH_REQUEST_FAILED,
       payload: error,
