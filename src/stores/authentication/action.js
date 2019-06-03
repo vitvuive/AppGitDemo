@@ -25,17 +25,20 @@ const onLoginRequest = () => {
     type: Types.REQUEST_LOGIN,
   };
 };
+
 const onLoginSuccess = (data) => {
   return {
     type: Types.REQUEST_LOGIN_SUCCESS,
     data,
   };
 };
+
 const onLoginFailed = () => {
   return {
     type: Types.REQUEST_LOGIN_FAILED,
   };
 };
+
 const onRequestLogOut = () => {
   return {
     type: Types.REQUEST_LOGOUT,

@@ -25,17 +25,17 @@ function* handleLogin() {
       email,
       password,
     );
+    // TODO: action creator
     yield put({
       type: types.authentication.REQUEST_LOGIN_SUCCESS,
       payload: data,
     });
 
-    // const token = AsyncStorage.setItem('userData', JSON.stringify(data));
-    // yield put(actions.authentication.saveToken(token));
-    // console.log(token);
-    // console.log('login sucess');
+    AsyncStorage.setItem('userData', JSON.stringify(data));
+
     AppController.startMainApp();
   } catch (error) {
+    // TODO: action creator
     yield put({
       type: types.authentication.REQUEST_LOGIN_FAILED,
       payload: error,

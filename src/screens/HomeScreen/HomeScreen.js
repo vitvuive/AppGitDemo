@@ -61,8 +61,7 @@ export default class HomeScreen extends Component {
           <FlatList
             data={dataApp}
             renderItem={({ item, }) => <CardRepos data_res={item} />}
-            extraData={this.state}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item) => item.id + ''}
           />
         </View>
         <ModalLoading visible={isLoading} />

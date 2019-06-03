@@ -2,13 +2,14 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
+import Immutable from 'seamless-immutable';
 import { Types, } from './type';
-const INIT_STATE = {
+const INIT_STATE = Immutable({
   name: '',
   data: [],
   messenger: '',
   loading: false,
-};
+});
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
     case Types.SEARCH_REQUEST:

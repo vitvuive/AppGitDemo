@@ -1,29 +1,22 @@
 import { connect, } from 'react-redux';
-import HomeScreen from './HomeScreen';
 import _ from 'lodash';
+
+import HomeScreen from './HomeScreen';
 
 import { actions, selectors, } from 'src/stores';
 
 const mapStateToProps = (state) => {
-  const dataApp = _.map(state.searchRepos.data, (value, key) => {
-    return { ...value, key, };
-  });
+  // TODO: selector
   return {
     isLoading: selectors.searchRepos.getLoading(state),
     name: selectors.searchRepos.getNameSearch(state),
-    dataApp,
+    dataApp: state.searchRepos.data,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    nameChanged: (name) => {
-      dispatch(actions.searchRepos.nameChanged(name));
-    },
-    onSearchRequest: () => {
-      dispatch(actions.searchRepos.onSearchRequest());
-    },
-  };
+const mapDispatchToProps = {
+  nameChanged: actions.searchRepos.nameChanged,
+  onSearchRequest: actions.searchRepos.onSearchRequest,
 };
 
 export default connect(
