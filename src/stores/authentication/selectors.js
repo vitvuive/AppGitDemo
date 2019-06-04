@@ -2,16 +2,16 @@ import R from 'ramda';
 
 const getLoginEmail = R.pathOr('', ['authentication', 'email',]);
 const getLoginPassword = R.pathOr('', ['authentication', 'password',]);
-const getLoginMsg = R.pathOr('', ['authentication', 'messenger',]);
-const getLoading = R.pathOr('', ['authentication', 'loading',]);
-const getUserExist = R.pathOr('', ['authentication', 'user',]);
+const getLoading = R.pathOr(false, ['authentication', 'loading',]);
+const getUserExits = R.pathOr(Boolean, ['authentication', 'isLogged',]);
+const getUserData = R.pathOr(undefined, ['authentication', 'user',]);
 
 const Selectors = {
   getLoginEmail,
   getLoginPassword,
-  getLoginMsg,
   getLoading,
-  getUserExist,
+  getUserData,
+  getUserExits,
 };
 
 export { Selectors };

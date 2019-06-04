@@ -3,7 +3,7 @@
  * @email: vietqb9779@gmail.com
  */
 
-import { Types as authenticationTypes, } from './type';
+import { Types as authenticationTypes, } from './action';
 import { Actions as authenticationActions, } from './action';
 import authenticationReducers from './reducer';
 import { Selectors as authenticationSelectors, } from './selectors';

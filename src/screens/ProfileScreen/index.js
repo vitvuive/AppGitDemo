@@ -9,14 +9,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onRequestLogOut: () => {
-      dispatch(actions.authentication.onRequestLogOut());
-    },
-  };
+const mapDispatchToProps = {
+  onRequestLogOut: actions.authentication.onRequestLogOut,
 };
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

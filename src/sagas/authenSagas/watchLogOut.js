@@ -2,32 +2,29 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
-import { AsyncStorage, } from 'react-native';
-import { put, takeLatest, call, } from 'redux-saga/effects';
+import { put, takeLatest, } from 'redux-saga/effects';
 
-import { firebaseNana, } from 'src/firebase-service/firebase';
+// import { firebaseNana, } from 'src/firebase-service/firebase';
 import * as AppController from 'src/AppController';
 
-import { types, } from 'src/stores';
+import { types, actions, } from 'src/stores';
+
+export function* watchLogOut() {
+  yield takeLatest(types.authentication.LOGOUT_REQUSET, handleLogout);
+}
 
 function* handleLogout() {
   try {
-    const auth = firebaseNana.auth();
-    yield call([auth, auth.signOut,]);
-    // TODO: action creator
-    yield put({ type: types.authentication.REQUEST_LOGOUT_SUCCESS, });
-
-    AsyncStorage.removeItem('userData');
-
+    yield put(actions.authentication.setLoadingStatus(true));
+    // const auth = firebaseNana.auth();
+    // yield call([auth, auth.signOut,]);
     AppController.startLogin();
   } catch (error) {
-    // TODO: action creator
-    yield put({
-      type: types.authentication.REQUEST_LOGOUT_FAILED,
-      payload: error,
-    });
+    // console.log(error)
+  } finally {
+    yield put(actions.authentication.setEmailString(''));
+    yield put(actions.authentication.setPasswordString(''));
+    yield put(actions.authentication.setLoggedStatus(false));
+    yield put(actions.authentication.setLoadingStatus(false));
   }
-}
-export function* watchLogOut() {
-  yield takeLatest(types.authentication.REQUEST_LOGOUT, handleLogout);
 }

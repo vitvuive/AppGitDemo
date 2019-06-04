@@ -1,6 +1,8 @@
-import { Types as searchReposTypes, } from './type';
 import { Selectors as searchReposSelectors, } from './selectors';
-import { Actions as searchReposActions, } from './action';
+import {
+  Actions as searchReposActions,
+  Types as searchReposTypes,
+} from './action';
 import searchReposReducer from './reducer';
 
 export {

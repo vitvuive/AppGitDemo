@@ -16,11 +16,11 @@ async function startApp() {
   // Start redux saga watchers
   startSaga();
   //
-  const isUser = selectors.authentication.getUserExist(store.getState());
-  if (isUser) {
-    AppControllder.startMainApp();
-  } else {
+  const isUser = selectors.authentication.getUserExits(store.getState());
+  if (isUser !== true) {
     AppControllder.startLogin();
+  } else {
+    AppControllder.startMainApp();
   }
 }
 

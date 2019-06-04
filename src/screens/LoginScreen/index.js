@@ -12,23 +12,14 @@ const mapStateToProps = (state) => {
   return {
     email: selectors.authentication.getLoginEmail(state),
     password: selectors.authentication.getLoginPassword(state),
-    messenger: selectors.authentication.getLoginMsg(state),
     loading: selectors.authentication.getLoading(state),
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onEmailChange: (email) => {
-      dispatch(actions.authentication.onEmailChange(email));
-    },
-    onPasswordChange: (password) => {
-      dispatch(actions.authentication.onPasswordChange(password));
-    },
-    onLoginRequest: () => {
-      dispatch(actions.authentication.onLoginRequest());
-    },
-  };
+const mapDispatchToProps = {
+  onEmailChange: actions.authentication.setEmailString,
+  onPasswordChange: actions.authentication.setPasswordString,
+  onLoginRequest: actions.authentication.onRequestLogin,
 };
 
 export default connect(

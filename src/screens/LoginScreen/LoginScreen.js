@@ -21,15 +21,13 @@ export default class LoginScreen extends Component {
 
     email: PropTypes.string.isRequired, // Will change
     password: PropTypes.string.isRequired, // Will change
-    messenger: PropTypes.string.isRequired, // Will change
     loading: PropTypes.bool.isRequired, //will change
   };
 
-  shouldComponentUpdate({ email, password, messenger, loading, }) {
+  shouldComponentUpdate({ email, password, loading, }) {
     return (
       this.props.email !== email ||
       this.props.password !== password ||
-      this.props.messenger !== messenger ||
       this.props.loading !== loading
     );
   }
@@ -82,7 +80,6 @@ export default class LoginScreen extends Component {
             >
               <Text style={{ fontSize: 18, color: '#FFF', }}>{'LOGIN'}</Text>
             </TouchableOpacity>
-            <Text>{this.props.messenger}</Text>
           </View>
         </View>
         <ModalLoading visible={loading} />

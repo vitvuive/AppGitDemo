@@ -7,5 +7,4 @@ export default {
   ProfileScreen: 'ProfileScreen',
   HomeScreen: 'HomeScreen',
   CardRepos: 'CardRepos',
-  Starting: 'Starting',
 };

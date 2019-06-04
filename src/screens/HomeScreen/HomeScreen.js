@@ -20,19 +20,26 @@ import PropTypes from 'prop-types';
 export default class HomeScreen extends Component {
   static propTypes = {
     onSearchRequest: PropTypes.func.isRequired, //no change
-    nameChanged: PropTypes.func.isRequired, // no chane
+    onSearchStringChange: PropTypes.func.isRequired, // no chane
 
     isLoading: PropTypes.bool.isRequired, //will change
-    name: PropTypes.string.isRequired, //will changed
+    nameSearchChange: PropTypes.string.isRequired, //will changed
     dataApp: PropTypes.array.isRequired, //will changed
   };
+
+  shouldComponentUpdate({ nameSearchChange, isLoading, }) {
+    return (
+      this.props.nameSearchChange !== nameSearchChange ||
+      this.props.isLoading !== isLoading
+    );
+  }
 
   render() {
     const {
       onSearchRequest,
-      nameChanged,
+      onSearchStringChange,
       isLoading,
-      name,
+      nameSearchChange,
       dataApp,
     } = this.props;
 
@@ -44,8 +51,8 @@ export default class HomeScreen extends Component {
               underlineColorAndroid="transparent"
               style={styles.textInput}
               placeholder="Enter user name on Github"
-              value={name}
-              onChangeText={nameChanged}
+              value={nameSearchChange}
+              onChangeText={onSearchStringChange}
               onSubmitEditing={onSearchRequest}
             />
 
@@ -97,7 +104,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    height: 40,
+    height: 38,
 
     fontSize: 16,
 
