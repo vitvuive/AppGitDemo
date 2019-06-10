@@ -10,6 +10,9 @@ import * as AppController from 'src/AppController';
 import { selectors, types, actions, } from 'src/stores';
 
 export function* watchLogin() {
+  yield put(actions.authentication.setLoadingStatus(false));
+  // yield put(actions.authentication.setEmailString(''));
+  // yield put(actions.authentication.setPasswordString(''));
   yield takeLatest(types.authentication.LOGIN_REQUEST, handleLogin);
 }
 
@@ -26,10 +29,13 @@ function* handleLogin() {
     //   email,
     //   password,
     // );
+
     if (email === 'viet@viet.com' && password === '123456') {
+      yield put(actions.authentication.setLoggedStatus(true));
       AppController.startMainApp();
+    } else {
+      alert('Email or Password incorrect!');
     }
-    yield put(actions.authentication.setLoggedStatus(true));
 
     // yield put(actions.authentication.setDataUser(data));
   } catch (error) {

@@ -3,14 +3,13 @@
  * @email: vietqb9779@gmail.com
  */
 import React, { Component, } from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, } from 'react-native';
+import { Field, } from 'redux-form';
+
+import { emailVal, requiredVal, minLength6, } from './validate';
+import MyInput from 'src/components/MyInput';
 import ModalLoading from 'src/components/ModalLoading';
+
 import PropTypes from 'prop-types';
 
 export default class LoginScreen extends Component {
@@ -31,56 +30,56 @@ export default class LoginScreen extends Component {
       this.props.loading !== loading
     );
   }
-
+  _submit = (values) => {
+    alert(`validate success, value = ${JSON.stringify(values)}`);
+  };
   _regPasswordRef = (r) => (this.passwordInput = r);
 
   _focusPassword = () => this.passwordInput && this.passwordInput.focus();
 
   render() {
     const {
+      handleSubmit,
+      onLoginRequest,
+      onEmailChange,
+      onPasswordChange,
       email,
       password,
       loading,
-      onEmailChange,
-      onPasswordChange,
-      onLoginRequest,
     } = this.props;
-
     return (
       <ScrollView keyboardShouldPersistTaps="handled" style={styles.scrollView}>
-        <View style={styles.container}>
-          <View style={styles.containerText}>
-            <TextInput
-              style={styles.input}
-              value={email}
-              onChangeText={onEmailChange}
-              onSubmitEditing={this._focusPassword}
-              underlineColorAndroid="transparent"
-              placeholder="Email"
-              fontSize={18}
-              keyboardType="email-address"
-              returnKeyType="next"
-            />
-            <TextInput
-              ref={this._regPasswordRef}
-              style={styles.input}
-              value={password}
-              onChangeText={onPasswordChange}
-              onSubmitEditing={onLoginRequest}
-              underlineColorAndroid="transparent"
-              placeholder="Password"
-              secureTextEntry={true}
-              fontSize={18}
-              returnKeyType="go"
-              autoCapitalize="none"
-            />
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              onPress={onLoginRequest}
-            >
-              <Text style={{ fontSize: 18, color: '#FFF', }}>{'LOGIN'}</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.containerText}>
+          <Field
+            value={email}
+            onChangeText={onEmailChange}
+            onSubmitEditing={this._focusPassword}
+            validate={[emailVal, requiredVal,]}
+            component={MyInput}
+            name="email"
+            label={'Email'}
+            keyboardType="email-address"
+            returnKeyType="next"
+          />
+          <Field
+            ref={this._regPasswordRef}
+            value={password}
+            onChangeText={onPasswordChange}
+            onSubmitEditing={handleSubmit(onLoginRequest)}
+            validate={[requiredVal, minLength6,]}
+            component={MyInput}
+            secureTextEntry
+            name="password"
+            label={'Password'}
+            keyboardType="default"
+            returnKeyType="go"
+          />
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={handleSubmit(onLoginRequest)}
+          >
+            <Text>{'LOGIN'}</Text>
+          </TouchableOpacity>
         </View>
         <ModalLoading visible={loading} />
       </ScrollView>
@@ -89,24 +88,13 @@ export default class LoginScreen extends Component {
 }
 const styles = {
   scrollView: {
-    backgroundColor: '#EEEEEE',
-  },
-  container: {
     padding: 24,
+
+    backgroundColor: '#EEEEEE',
   },
   containerText: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    width: 250,
-
-    paddingHorizontal: 10,
-    margin: 10,
-
-    borderBottomWidth: 1,
-    borderColor: '#dadada',
   },
   buttonStyle: {
     justifyContent: 'center',
@@ -115,9 +103,15 @@ const styles = {
     height: 40,
     paddingLeft: 24,
     paddingRight: 24,
+    marginTop: 8,
 
     borderRadius: 5,
 
     backgroundColor: '#009688',
+  },
+  textError: {
+    fontSize: 18,
+
+    color: '#FFF',
   },
 };

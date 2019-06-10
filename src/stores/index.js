@@ -3,6 +3,7 @@
  * @email: vietqb9779@gmail.com
  */
 import { combineReducers, } from 'redux';
+import { reducer as formReducer, } from 'redux-form';
 
 //authentication
 import {
@@ -22,7 +23,8 @@ import {
 
 const rootReducer = combineReducers({
   authentication: authenticationReducers,
-  searchRepos: searchReposReducer, // more
+  searchRepos: searchReposReducer,
+  form: formReducer, // more
 });
 
 const types = {

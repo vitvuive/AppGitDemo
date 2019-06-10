@@ -16,6 +16,7 @@
     "react-native-navigation": "1.1.458",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
+    "redux-form": "^8.2.3",
     "redux-persist": "4.10.2",
     "redux-saga": "^1.0.2",
     "redux-thunk": "^2.3.0",
