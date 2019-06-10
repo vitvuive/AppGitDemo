@@ -7,6 +7,8 @@ const MyInput = ({
   value,
   returnKeyType,
   secureTextEntry,
+  refWith,
+  onSubmitEditing,
   meta: { touched, error, warning, },
   input: { ...resInput },
 }) => {
@@ -21,6 +23,8 @@ const MyInput = ({
         value={value}
         returnKeyType={returnKeyType}
         secureTextEntry={secureTextEntry}
+        ref={refWith}
+        onSubmitEditing={onSubmitEditing}
         {...resInput}
       />
       {touched &&

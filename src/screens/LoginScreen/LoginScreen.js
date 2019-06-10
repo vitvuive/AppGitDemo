@@ -62,9 +62,9 @@ export default class LoginScreen extends Component {
             returnKeyType="next"
           />
           <Field
-            ref={this._regPasswordRef}
             value={password}
             onChangeText={onPasswordChange}
+            refWith={this._regPasswordRef}
             onSubmitEditing={handleSubmit(onLoginRequest)}
             validate={[requiredVal, minLength6,]}
             component={MyInput}
