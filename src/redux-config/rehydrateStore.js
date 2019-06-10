@@ -6,7 +6,7 @@ import transformer from './transform';
 const persistcConfig = {
   storage,
   transforms: [transformer,],
-  blacklist: ['searchRepos',],
+  blacklist: ['searchRepos', 'form',],
 };
 
 export default function rehydrateStore(store) {

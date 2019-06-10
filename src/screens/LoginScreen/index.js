@@ -3,6 +3,7 @@
  * @email: vietqb9779@gmail.com
  */
 import { connect, } from 'react-redux';
+import { reduxForm, } from 'redux-form';
 
 import { selectors, actions, } from 'src/stores';
 
@@ -25,4 +26,8 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LoginScreen);
+)(
+  reduxForm({
+    form: 'Login field validate', // a unique identifier for this form
+  })(LoginScreen),
+);
