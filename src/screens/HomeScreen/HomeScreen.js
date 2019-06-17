@@ -69,6 +69,8 @@ export default class HomeScreen extends Component {
             data={dataApp}
             renderItem={({ item, }) => <CardRepos data_res={item} />}
             keyExtractor={(item) => item.id + ''}
+            refreshing={isLoading}
+            onRefresh={onSearchRequest}
           />
         </View>
         <ModalLoading visible={isLoading} />

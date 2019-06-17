@@ -28,9 +28,7 @@ const MyInput = ({
         {...resInput}
       />
       {touched &&
-        ((error && (
-          <Text style={{ color: 'red', fontSize: 12, }}>{error}</Text>
-        )) ||
+        ((error && <Text style={styles.errorText}>{error}</Text>) ||
           (warning && <Text style={styles.textError}>{warning}</Text>))}
     </View>
   );
@@ -52,5 +50,10 @@ const styles = {
 
     borderBottomWidth: 1,
     borderColor: '#dadada',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 12,
+    paddingLeft: 10,
   },
 };
