@@ -14,6 +14,7 @@ const ReducerTypes = {
 
 const SagaTypes = {
   LOGIN_REQUEST: 'authentication@LOGIN_REQUEST',
+  REGISTER_REQUEST: 'REGISTER_REQUEST',
   LOGOUT_REQUSET: 'authentication@LOGOUT_REQUSET',
 };
 
@@ -51,6 +52,9 @@ const SagaAction = {
   }),
   onRequestLogOut: () => ({
     type: SagaTypes.LOGOUT_REQUSET,
+  }),
+  onRequestRegister: () => ({
+    type: SagaTypes.REGISTER_REQUEST,
   }),
 };
 

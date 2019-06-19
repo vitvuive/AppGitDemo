@@ -6,4 +6,6 @@ export const IconAssets = {
   SearchFolder: require('./icons/icon-search-folder.png'),
   Profile: require('./icons/icon-profile.png'),
   SearchIcon: require('./icons/icon-search.png'),
+  MessengerIcon: require('./icons/chat-room.png'),
+  PlaceIcon: require('./icons/user-location.png'),
 };

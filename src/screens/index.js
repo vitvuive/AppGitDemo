@@ -8,12 +8,18 @@ import ProfileScreen from './ProfileScreen';
 import LoginScreen from './LoginScreen';
 import ScreenIDs from './ScreenIDs';
 import CardRepos from './HomeScreen/CardRepos';
+import PlacesScreen from './PlacesScreen';
+import MessengerScreen from './MessengerScreen';
+import RegisterScreen from './RegisterScreen';
 
 const screens = {
   [ScreenIDs.HomeScreen]: HomeScreen,
   [ScreenIDs.ProfileScreen]: ProfileScreen,
   [ScreenIDs.LoginScreen]: LoginScreen,
   [ScreenIDs.CardRepos]: CardRepos,
+  [ScreenIDs.PlacesScreen]: PlacesScreen,
+  [ScreenIDs.MessengerScreen]: MessengerScreen,
+  [ScreenIDs.RegisterScreen]: RegisterScreen,
 };
 
 const registerScreens = (store: Object, Provider: Object) => {

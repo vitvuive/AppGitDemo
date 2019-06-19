@@ -4,5 +4,6 @@
  */
 import { watchLogin, } from './watchLogin';
 import { watchLogOut, } from './watchLogOut';
+import { watchRegister, } from './watchRegister';
 
-export default [watchLogin(), watchLogOut(),];
+export default [watchLogin(), watchLogOut(), watchRegister(),];

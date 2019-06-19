@@ -20,7 +20,8 @@ async function startApp() {
   if (isUser !== true) {
     AppControllder.startLogin();
   } else {
-    AppControllder.startMainApp();
+    // AppControllder.startMainApp();
+    AppControllder.startAppNana();
   }
 }
 

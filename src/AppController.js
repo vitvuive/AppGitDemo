@@ -57,4 +57,38 @@ export const startLogin = () => {
   });
 };
 
+export const startAppNana = () => {
+  Navigation.startTabBasedApp({
+    tabs: [
+      {
+        label: 'Places',
+        screen: ScreenIDs.PlacesScreen,
+        icon: IconAssets.PlaceIcon,
+        selectedIcon: IconAssets.PlaceIcon,
+        navigatorStyle: {
+          navBarHidden: true,
+          statusBarColor: '#009688',
+        },
+      },
+      {
+        label: 'Messenger',
+        screen: ScreenIDs.ProfileScreen,
+        icon: IconAssets.MessengerIcon,
+        selectedIcon: IconAssets.MessengerIcon,
+        title: 'Messenger',
+        navigatorStyle: {
+          statusBarColor: '#009688',
+          navBarBackgroundColor: '#009688',
+          navBarTextColor: '#fff',
+        },
+      },
+    ],
+    appStyle: {
+      tabBarSelectedButtonColor: '#009688',
+      forceTitlesDisplay: true,
+      navBarTitleTextCentered: true,
+      navBarBackgroundColor: 'white',
+    },
+  });
+};
 // add here

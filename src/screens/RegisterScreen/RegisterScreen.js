@@ -1,23 +1,22 @@
-/**
- * @author: Nguyen Van Viet
- * @email: vietqb9779@gmail.com
- */
 import React, { Component, } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, } from 'react-native';
 import { Field, } from 'redux-form';
 
-import { emailVal, requiredVal, minLength6, } from './validate';
+import {
+  emailVal,
+  requiredVal,
+  minLength6,
+} from 'src/screens/LoginScreen/validate';
 import MyInput from 'src/components/MyInput';
 import ModalLoading from 'src/components/ModalLoading';
-import ScreenIDs from 'src/screens/ScreenIDs';
 
 import PropTypes from 'prop-types';
 
-export default class LoginScreen extends Component {
+export default class RegisterScreen extends Component {
   static propTypes = {
     onEmailChange: PropTypes.func.isRequired, // No change
     onPasswordChange: PropTypes.func.isRequired, // No change
-    onLoginRequest: PropTypes.func.isRequired, // No change
+    onRequestRegister: PropTypes.func.isRequired, // No change
 
     email: PropTypes.string.isRequired, // Will change
     password: PropTypes.string.isRequired, // Will change
@@ -39,7 +38,7 @@ export default class LoginScreen extends Component {
   render() {
     const {
       handleSubmit,
-      onLoginRequest,
+      onRequestRegister,
       onEmailChange,
       onPasswordChange,
       email,
@@ -64,7 +63,7 @@ export default class LoginScreen extends Component {
             value={password}
             onChangeText={onPasswordChange}
             refWith={this._regPasswordRef}
-            onSubmitEditing={handleSubmit(onLoginRequest)}
+            onSubmitEditing={handleSubmit(onRequestRegister)}
             validate={[requiredVal, minLength6,]}
             component={MyInput}
             secureTextEntry
@@ -75,26 +74,17 @@ export default class LoginScreen extends Component {
           />
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={handleSubmit(onLoginRequest)}
+            onPress={handleSubmit(onRequestRegister)}
           >
-            <Text>{'LOGIN'}</Text>
+            <Text>{'Register'}</Text>
           </TouchableOpacity>
-          <Text
-            onPress={() =>
-              this.props.navigator.push({
-                screen: ScreenIDs.RegisterScreen,
-                title: 'Register Accout',
-              })
-            }
-          >
-            Don't have accout? Register
-          </Text>
         </View>
         <ModalLoading visible={loading} />
       </ScrollView>
     );
   }
 }
+
 const styles = {
   scrollView: {
     padding: 24,

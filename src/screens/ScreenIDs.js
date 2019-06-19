@@ -7,4 +7,8 @@ export default {
   ProfileScreen: 'ProfileScreen',
   HomeScreen: 'HomeScreen',
   CardRepos: 'CardRepos',
+  // new project
+  MessengerScreen: 'MessengerScreen',
+  PlacesScreen: 'PlacesScreen',
+  RegisterScreen: 'RegisterScreen',
 };

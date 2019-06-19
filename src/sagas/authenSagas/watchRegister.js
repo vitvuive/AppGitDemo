@@ -2,6 +2,7 @@
  * @author: Nguyen Van Viet
  * @email: vietqb9779@gmail.com
  */
+import { ToastAndroid, } from 'react-native';
 import { put, takeLatest, select, call, } from 'redux-saga/effects';
 
 import { firebaseNana, } from 'src/firebase-service/firebase';
@@ -9,14 +10,14 @@ import * as AppController from 'src/AppController';
 
 import { selectors, types, actions, } from 'src/stores';
 
-export function* watchLogin() {
+export function* watchRegister() {
   yield put(actions.authentication.setLoadingStatus(false));
   yield put(actions.authentication.setEmailString(''));
   yield put(actions.authentication.setPasswordString(''));
-  yield takeLatest(types.authentication.LOGIN_REQUEST, handleLogin);
+  yield takeLatest(types.authentication.REGISTER_REQUEST, handleRegister);
 }
 
-function* handleLogin() {
+function* handleRegister() {
   try {
     yield put(actions.authentication.setLoadingStatus(true));
 
@@ -24,20 +25,12 @@ function* handleLogin() {
     const password = yield select(selectors.authentication.getLoginPassword);
 
     const auth = firebaseNana.auth();
-    yield call([auth, auth.signInWithEmailAndPassword,], email, password);
+    yield call([auth, auth.createUserWithEmailAndPassword,], email, password);
+    ToastAndroid.show(`Success with email\n${email}`, ToastAndroid.CENTER);
 
-    // if (email === 'viet@viet.com' && password === '123456') {
-    //   yield put(actions.authentication.setLoggedStatus(true));
-    //   AppController.startMainApp();
-    // } else {
-    //   alert('Email or Password incorrect!');
-    // }
-    AppController.startAppNana();
-    yield put(actions.authentication.setLoggedStatus(true));
-
-    // yield put(actions.authentication.setDataUser(data));
+    AppController.startLogin();
   } catch (error) {
-    alert('Email or Password failed, try again!');
+    alert(error);
   } finally {
     yield put(actions.authentication.setLoadingStatus(false));
   }
