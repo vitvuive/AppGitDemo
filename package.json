@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "firebase": "^6.0.4",
+    "firebase": "^12.8.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
